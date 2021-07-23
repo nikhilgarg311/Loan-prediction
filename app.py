@@ -26,6 +26,7 @@ def predict():
     if request.method == 'POST':
         Gender = int(request.form['Gender'])
         Married = int(request.form['Married'])
+        Dependents=int(request.form['dependents'])
         Education = int(request.form['Education'])
         Self_Employed = int(request.form['Self_Employed'])
         ApplicantIncome = float(request.form['ApplicantIncome'])
@@ -33,7 +34,7 @@ def predict():
         Loan_Amount = float(request.form['Loan_Amount'])
         Credit_History = float(request.form['Credit_History'])
         Propert_Area = int(request.form['Property_Area'])
-        prediction=model.predict([[Gender,Married,Education,Self_Employed,ApplicantIncome,CoapplicantIncome,Loan_Amount,Loan_Amount_Term,Credit_History,Propert_Area]])
+        prediction=model.predict([[Gender,Married,Dependents,Education,Self_Employed,ApplicantIncome,CoapplicantIncome,Loan_Amount,Loan_Amount_Term,Credit_History,Propert_Area]])
         output=prediction[0]
         print(output)
         if output==0:
